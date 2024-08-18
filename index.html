@@ -3,49 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aitek VoiceMode</title>
+    <title>Empathic Voice Interface</title>
     <style>
-      body, html {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-      }
-      #app {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #app img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        cursor: pointer;
-      }
-      #chat {
-        position: absolute;
+      /* Make sure the chat container is fixed to the bottom and occupies full width */
+      #chat-container {
+        position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
+        height: 200px; /* Adjust the height as needed */
+        background-color: #000; /* Dark background for terminal-like appearance */
+        color: #0f0; /* Green text for terminal effect */
+        border-top: 1px solid #0f0; /* Green border at the top */
+        overflow-y: auto; /* Scroll if content overflows */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Shadow for better visibility */
+      }
+
+      #chat {
         padding: 10px;
-        box-sizing: border-box;
+        font-family: 'Courier New', monospace; /* Terminal-like font */
+      }
+
+      #chat h2 {
+        margin: 0;
+        font-size: 16px;
+      }
+
+      /* Style the GIF */
+      #gif {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Style for the app container and buttons */
+      #app {
+        text-align: center;
+      }
+
+      #auth-btn, #start-btn, #end-btn {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
     <div id="app">
-      <img id="gif" src="https://aitek.site/obra/asset/bg.gif" alt="Voice Interface" />
-      <div id="chat">
-        <h2>Chat</h2>
+      <img id="gif" src="/path/to/your.gif" alt="Interactive GIF" />
+      <button id="auth-btn">Authenticate</button>
+      <button id="start-btn" disabled>Start</button>
+      <button id="end-btn" disabled>End</button>
+      <div id="chat-container">
+        <div id="chat">
+          <h2>Chat</h2>
+        </div>
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
